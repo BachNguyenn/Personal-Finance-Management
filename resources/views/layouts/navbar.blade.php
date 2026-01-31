@@ -121,22 +121,25 @@
             })
             .catch(err => console.log('Error loading alerts:', err));
 
-         // Load alerts when dropdown is opened
-         document.getElementById('alerts-dropdown').addEventListener('show.bs.dropdown', function () {
+         // Load alerts when dropdown is opened (Use jQuery for Bootstrap 4 events)
+         $('#alerts-dropdown').on('show.bs.dropdown', function () {
             fetch('{{ route("alerts.recent") }}')
-               .then(response => response.json())
+               .then(response => {
+                  if (!response.ok) throw new Error('Network response was not ok');
+                  return response.json();
+               })
                .then(alerts => {
-                  const list = document.getElementById('alerts-list');
+                  const list = $('#alerts-list');
                   if (alerts.length === 0) {
-                     list.innerHTML = '<a href="#" class="dropdown-item text-center text-muted">{{ __("Không có thông báo") }}</a>';
+                     list.html('<a href="#" class="dropdown-item text-center text-muted">{{ __("Không có thông báo") }}</a>');
                      return;
                   }
 
-                  list.innerHTML = alerts.map(alert => {
+                  const html = alerts.map(alert => {
                      const icon = alert.alert_type === 'exceeded'
                         ? '<i class="fas fa-exclamation-circle text-danger mr-2"></i>'
                         : '<i class="fas fa-exclamation-triangle text-warning mr-2"></i>';
-                     const categoryName = alert.budget?.category?.name || 'N/A';
+                     const categoryName = (alert.budget && alert.budget.category) ? alert.budget.category.name : 'N/A';
                      const message = alert.alert_type === 'exceeded'
                         ? `Vượt ngân sách "${categoryName}": ${alert.percentage_used}%`
                         : `Cảnh báo "${categoryName}": ${alert.percentage_used}%`;
@@ -144,8 +147,13 @@
 
                      return `<a href="#" class="dropdown-item ${isRead}">${icon}<small>${message}</small></a>`;
                   }).join('<div class="dropdown-divider"></div>');
+                  
+                  list.html(html);
                })
-               .catch(err => console.log('Error loading alerts:', err));
+               .catch(err => {
+                  console.error('Error loading alerts:', err);
+                  $('#alerts-list').html('<a href="#" class="dropdown-item text-center text-danger"><i class="fas fa-exclamation-circle"></i> {{ __("Lỗi tải thông báo") }}</a>');
+               });
          });
       });
    </script>

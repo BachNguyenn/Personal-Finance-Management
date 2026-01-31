@@ -14,7 +14,7 @@
     <div class="row">
         @forelse($wallets as $wallet)
             <div class="col-lg-4 col-md-6 mb-4">
-                <div class="small-box" style="background-color: {{ $wallet->color }}20; color: #333">
+                <div class="small-box" style="background-color: {{ $wallet->color }}20;">
                     <div class="inner">
                         <h3>{{ number_format($wallet->balance, 0, ',', '.') }} <small
                                 style="font-size: 0.5em">{{ $wallet->currency }}</small></h3>

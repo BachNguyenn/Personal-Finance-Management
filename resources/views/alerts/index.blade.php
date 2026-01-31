@@ -45,7 +45,7 @@
                               @endif
                            </strong>
                            <p class="mb-1">
-                              {{ __('Danh mục') }}: <strong>{{ $alert->budget->category->name ?? 'N/A' }}</strong>
+                              {{ __('Danh mục') }}: <strong>{{ $alert->budget?->category?->name ?? 'N/A' }}</strong>
                               <br>
                               {{ __('Đã chi') }}: {{ number_format($alert->spent_amount, 0, ',', '.') }} ₫
                               ({{ $alert->percentage_used }}%)
