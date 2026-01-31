@@ -23,6 +23,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: background-color 0.3s ease;
         }
 
         .login-box,
@@ -44,6 +45,7 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
             overflow: hidden;
             background: #fff;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         .card-header {
@@ -90,11 +92,13 @@
             height: 40px;
             padding-left: 10px;
             font-size: 14px;
+            color: #495057;
         }
 
         .form-control:focus {
             background: transparent;
             box-shadow: none;
+            color: #495057;
         }
 
         .input-group-text {
@@ -129,11 +133,67 @@
             font-size: 14px;
         }
 
-        /* Remove default adminlte borders */
         .card-primary.card-outline {
             border-top: 3px solid #007bff;
         }
+
+        /* DARK MODE STYLES */
+        body.dark-mode {
+            background-color: #12141d;
+            color: #c2c7d0;
+        }
+
+        body.dark-mode .card {
+            background-color: #1e222d;
+            /* Slightly lighter than body */
+            color: #fff;
+        }
+
+        body.dark-mode .card-header .h1 {
+            color: #fff;
+        }
+
+        body.dark-mode .login-box-msg,
+        body.dark-mode .register-box-msg {
+            color: #bbb;
+        }
+
+        body.dark-mode .input-group {
+            background-color: #2a303e;
+            /* Darker input background */
+            border-color: #4b546c;
+        }
+
+        body.dark-mode .form-control {
+            color: #fff;
+        }
+
+        body.dark-mode .form-control:focus {
+            color: #fff;
+        }
+
+        body.dark-mode .form-control::placeholder {
+            color: #adb5bd;
+        }
+
+        body.dark-mode .input-group-text {
+            color: #adb5bd;
+        }
+
+        body.dark-mode .icheck-primary label {
+            color: #ccc;
+        }
     </style>
+    <script>
+        // Apply dark mode immediately if saved in localStorage
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            document.documentElement.classList.add('dark');
+            // We also need to add 'dark-mode' class to body for AdminLTE
+            document.addEventListener('DOMContentLoaded', (event) => {
+                document.body.classList.add('dark-mode');
+            });
+        }
+    </script>
 </head>
 
 <body>

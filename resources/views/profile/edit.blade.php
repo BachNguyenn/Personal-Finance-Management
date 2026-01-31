@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Profile') }}
+            {{ __('Hồ sơ') }}
         </h2>
     </x-slot>
 
@@ -21,11 +21,11 @@
 
                             <h3 class="profile-username text-center">{{ Auth::user()->name }}</h3>
 
-                            <p class="text-muted text-center">{{ Auth::user()->bio ?? 'Software Engineer' }}</p>
+                            <p class="text-muted text-center">{{ Auth::user()->bio ?? __('Thành viên mới') }}</p>
 
                             <ul class="list-group list-group-unbordered mb-3">
                                 <li class="list-group-item">
-                                    <b>{{ __('Joined') }}</b> <a
+                                    <b>{{ __('Thành viên từ') }}</b> <a
                                         class="float-right">{{ Auth::user()->created_at->format('M Y') }}</a>
                                 </li>
                                 <li class="list-group-item">
@@ -41,25 +41,25 @@
                     <!-- About Me Box -->
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">{{ __('About Me') }}</h3>
+                            <h3 class="card-title">{{ __('Giới thiệu') }}</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
                             @if(Auth::user()->education)
-                                <strong><i class="fas fa-book mr-1"></i> {{ __('Education') }}</strong>
+                                <strong><i class="fas fa-book mr-1"></i> {{ __('Học vấn') }}</strong>
                                 <p class="text-muted">
                                     {{ Auth::user()->education }}
                                 </p>
                                 <hr>
                             @endif
 
-                            <strong><i class="fas fa-map-marker-alt mr-1"></i> {{ __('Location') }}</strong>
-                            <p class="text-muted">{{ Auth::user()->address ?? __('Not set') }}</p>
+                            <strong><i class="fas fa-map-marker-alt mr-1"></i> {{ __('Địa chỉ') }}</strong>
+                            <p class="text-muted">{{ Auth::user()->address ?? __('Chưa cập nhật') }}</p>
 
                             <hr>
 
-                            <strong><i class="far fa-file-alt mr-1"></i> {{ __('Bio') }}</strong>
-                            <p class="text-muted">{{ Auth::user()->bio ?? __('No bio available.') }}</p>
+                            <strong><i class="far fa-file-alt mr-1"></i> {{ __('Tiểu sử') }}</strong>
+                            <p class="text-muted">{{ Auth::user()->bio ?? __('Chưa có thông tin.') }}</p>
                         </div>
                         <!-- /.card-body -->
                     </div>
@@ -73,11 +73,11 @@
                         <div class="card-header p-2">
                             <ul class="nav nav-pills">
                                 <li class="nav-item"><a class="nav-link active" href="#settings"
-                                        data-toggle="tab">{{ __('Settings') }}</a></li>
+                                        data-toggle="tab">{{ __('Cài đặt') }}</a></li>
                                 <li class="nav-item"><a class="nav-link" href="#password"
-                                        data-toggle="tab">{{ __('Change Password') }}</a></li>
+                                        data-toggle="tab">{{ __('Đổi mật khẩu') }}</a></li>
                                 <li class="nav-item"><a class="nav-link text-danger" href="#delete"
-                                        data-toggle="tab">{{ __('Delete Account') }}</a></li>
+                                        data-toggle="tab">{{ __('Xóa tài khoản') }}</a></li>
                             </ul>
                         </div><!-- /.card-header -->
                         <div class="card-body">

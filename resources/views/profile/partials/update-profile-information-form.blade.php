@@ -1,11 +1,11 @@
 <section>
     <header>
         <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
-            {{ __('Profile Information') }}
+            {{ __('Thông tin hồ sơ') }}
         </h2>
 
         <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
-            {{ __("Update your account's profile information and email address.") }}
+            {{ __("Cập nhật thông tin hồ sơ và địa chỉ email của bạn.") }}
         </p>
     </header>
 
@@ -20,7 +20,7 @@
         <div class="row">
             <!-- Name -->
             <div class="col-md-6 form-group">
-                <x-input-label for="name" :value="__('Name')" />
+                <x-input-label for="name" :value="__('Họ và tên')" />
                 <div class="input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fas fa-user"></i></span>
@@ -43,14 +43,14 @@
 
                 @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && !$user->hasVerifiedEmail())
                     <div class="mt-2 text-danger">
-                        {{ __('Your email address is unverified.') }}
+                        {{ __('Địa chỉ email của bạn chưa được xác minh.') }}
                         <button form="send-verification"
-                            class="btn btn-link p-0 m-0 align-baseline">{{ __('Click here to re-send the verification email.') }}</button>
+                            class="btn btn-link p-0 m-0 align-baseline">{{ __('Nhấn vào đây để gửi lại email xác minh.') }}</button>
                     </div>
 
                     @if (session('status') === 'verification-link-sent')
                         <div class="mt-2 text-success">
-                            {{ __('A new verification link has been sent to your email address.') }}
+                            {{ __('Một liên kết xác minh mới đã được gửi đến địa chỉ email của bạn.') }}
                         </div>
                     @endif
                 @endif
@@ -58,7 +58,7 @@
 
             <!-- Phone -->
             <div class="col-md-6 form-group">
-                <x-input-label for="phone" :value="__('Phone')" />
+                <x-input-label for="phone" :value="__('Số điện thoại')" />
                 <div class="input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fas fa-phone"></i></span>
@@ -70,7 +70,7 @@
 
             <!-- Birthday -->
             <div class="col-md-6 form-group">
-                <x-input-label for="birthday" :value="__('Birthday')" />
+                <x-input-label for="birthday" :value="__('Ngày sinh')" />
                 <div class="input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fas fa-birthday-cake"></i></span>
@@ -82,7 +82,7 @@
 
             <!-- Address -->
             <div class="col-md-12 form-group">
-                <x-input-label for="address" :value="__('Address')" />
+                <x-input-label for="address" :value="__('Địa chỉ')" />
                 <div class="input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
@@ -94,19 +94,19 @@
 
             <!-- Bio -->
             <div class="col-md-12 form-group">
-                <x-input-label for="bio" :value="__('Bio')" />
+                <x-input-label for="bio" :value="__('Giới thiệu')" />
                 <textarea id="bio" name="bio" class="form-control" rows="3"
-                    placeholder="{{ __('Tell us a little about yourself...') }}">{{ old('bio', $user->bio) }}</textarea>
+                    placeholder="{{ __('Giới thiệu một chút về bản thân bạn...') }}">{{ old('bio', $user->bio) }}</textarea>
                 <x-input-error class="mt-2" :messages="$errors->get('bio')" />
             </div>
         </div>
 
         <div class="flex items-center gap-4">
-            <button type="submit" class="btn btn-primary">{{ __('Save') }}</button>
+            <button type="submit" class="btn btn-primary">{{ __('Lưu') }}</button>
 
             @if (session('status') === 'profile-updated')
                 <p x-data="{ show: true }" x-show="show" x-transition x-init="setTimeout(() => show = false, 2000)"
-                    class="text-sm text-gray-600 dark:text-gray-400">{{ __('Saved.') }}</p>
+                    class="text-sm text-gray-600 dark:text-gray-400">{{ __('Đã lưu.') }}</p>
             @endif
         </div>
     </form>
