@@ -65,6 +65,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // Smart Insights
     Route::get('/insights', [\App\Http\Controllers\InsightsController::class, 'index'])->name('insights.index');
 
+    // Calendar
+    Route::get('/calendar', [\App\Http\Controllers\CalendarController::class, 'index'])->name('calendar.index');
+    Route::get('/calendar/events', [\App\Http\Controllers\CalendarController::class, 'getEvents'])->name('calendar.events');
+
     // Profile
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

@@ -87,6 +87,14 @@
             </li>
 
             <li class="nav-item">
+               <a href="{{ route('calendar.index') }}"
+                  class="nav-link {{ request()->routeIs('calendar.*') ? 'active' : '' }}">
+                  <i class="nav-icon fas fa-calendar-alt text-info"></i>
+                  <p>{{ __('Lịch Giao dịch') }}</p>
+               </a>
+            </li>
+
+            <li class="nav-item">
                <a href="{{ route('reports.index') }}"
                   class="nav-link {{ request()->routeIs('reports.*') ? 'active' : '' }}">
                   <i class="nav-icon fas fa-chart-line"></i>
