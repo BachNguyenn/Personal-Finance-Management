@@ -114,6 +114,12 @@
             border-color: #3a3a5c;
         }
 
+        /* Force override for profile sections that use bg-white */
+        .dark-mode .bg-white {
+            background-color: #16213e !important;
+            color: #e4e4e4 !important;
+        }
+
         .dark-mode .card-header {
             background-color: transparent;
             color: #e4e4e4;
@@ -406,7 +412,8 @@
         // Load dark mode preference immediately to prevent flash
         if (localStorage.getItem('darkMode') === 'enabled') {
             document.body.classList.add('dark-mode');
-        }
+            document.documentElement.classList.add('dark');
+    }
     </script>
     <div class="wrapper">
 

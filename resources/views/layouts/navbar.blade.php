@@ -70,9 +70,10 @@
          // Dark Mode Toggle
          const darkModeToggle = document.getElementById('darkModeToggle');
          const darkModeIcon = document.getElementById('darkModeIcon');
-         
+
          function updateDarkModeIcon() {
             if (document.body.classList.contains('dark-mode')) {
+               document.documentElement.classList.add('dark');
                darkModeIcon.classList.remove('fa-moon');
                darkModeIcon.classList.add('fa-sun');
             } else {
@@ -80,14 +81,15 @@
                darkModeIcon.classList.add('fa-moon');
             }
          }
-         
+
          // Initial icon state
          updateDarkModeIcon();
-         
-         darkModeToggle.addEventListener('click', function(e) {
+
+         darkModeToggle.addEventListener('click', function (e) {
             e.preventDefault();
             document.body.classList.toggle('dark-mode');
-            
+            document.documentElement.classList.toggle('dark');
+
             // Also toggle sidebar
             const sidebar = document.querySelector('.main-sidebar');
             if (document.body.classList.contains('dark-mode')) {
@@ -103,7 +105,7 @@
                   sidebar.classList.add('sidebar-dark-primary');
                }
             }
-            
+
             updateDarkModeIcon();
          });
 
