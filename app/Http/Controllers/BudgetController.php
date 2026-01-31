@@ -56,9 +56,13 @@ class BudgetController extends Controller
             'amount' => 'required|numeric|min:0.01',
             'start_date' => 'required|date',
             'end_date' => 'required|date|after_or_equal:start_date',
+            'alert_threshold' => 'nullable|integer|min:50|max:100',
+            'alert_enabled' => 'nullable|boolean',
         ]);
 
         $validated['user_id'] = Auth::id();
+        $validated['alert_threshold'] = $validated['alert_threshold'] ?? 80;
+        $validated['alert_enabled'] = $request->boolean('alert_enabled');
 
         Budget::create($validated);
 
@@ -96,7 +100,11 @@ class BudgetController extends Controller
             'amount' => 'required|numeric|min:0.01',
             'start_date' => 'required|date',
             'end_date' => 'required|date|after_or_equal:start_date',
+            'alert_threshold' => 'nullable|integer|min:50|max:100',
+            'alert_enabled' => 'nullable|boolean',
         ]);
+
+        $validated['alert_enabled'] = $request->boolean('alert_enabled');
 
         $budget->update($validated);
 

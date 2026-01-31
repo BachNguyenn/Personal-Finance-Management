@@ -32,6 +32,8 @@ class DatabaseSeeder extends Seeder
             TransactionSeeder::class,
             BudgetSeeder::class,
             SavingsGoalSeeder::class,
+            DebtSeeder::class,
+            FamilySeeder::class,
         ]);
     }
 }

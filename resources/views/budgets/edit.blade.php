@@ -54,6 +54,38 @@
                         </div>
                      </div>
                   </div>
+
+                  <hr>
+                  <h5><i class="fas fa-bell mr-2"></i>{{ __('Cài đặt Cảnh báo') }}</h5>
+
+                  <div class="row">
+                     <div class="col-md-6">
+                        <div class="form-group">
+                           <label>{{ __('Ngưỡng cảnh báo') }}</label>
+                           <div class="input-group">
+                              <input type="number" name="alert_threshold" class="form-control" min="50" max="100"
+                                 value="{{ old('alert_threshold', $budget->alert_threshold ?? 80) }}">
+                              <div class="input-group-append">
+                                 <span class="input-group-text">%</span>
+                              </div>
+                           </div>
+                           <small class="text-muted">{{ __('Cảnh báo khi chi tiêu đạt ngưỡng này') }}</small>
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="form-group">
+                           <label>{{ __('Bật cảnh báo') }}</label>
+                           <div class="custom-control custom-switch mt-2">
+                              <input type="hidden" name="alert_enabled" value="0">
+                              <input type="checkbox" class="custom-control-input" id="alert_enabled"
+                                 name="alert_enabled" value="1" {{ old('alert_enabled', $budget->alert_enabled ?? true) ? 'checked' : '' }}>
+                              <label class="custom-control-label" for="alert_enabled">
+                                 {{ __('Nhận thông báo khi vượt ngưỡng') }}
+                              </label>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
                </div>
 
                <div class="card-footer">

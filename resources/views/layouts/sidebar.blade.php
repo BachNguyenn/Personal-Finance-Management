@@ -61,6 +61,32 @@
             </li>
 
             <li class="nav-item">
+               <a href="{{ route('debts.index') }}"
+                  class="nav-link {{ request()->routeIs('debts.*') ? 'active' : '' }}">
+                  <i class="nav-icon fas fa-hand-holding-usd"></i>
+                  <p>{{ __('Sổ Nợ') }}</p>
+               </a>
+            </li>
+
+            <li class="nav-item">
+               <a href="{{ route('families.index') }}"
+                  class="nav-link {{ request()->routeIs('families.*') ? 'active' : '' }}">
+                  <i class="nav-icon fas fa-users"></i>
+                  <p>{{ __('Gia đình') }}</p>
+               </a>
+            </li>
+
+            <li class="nav-header">{{ __('Analytics') }}</li>
+
+            <li class="nav-item">
+               <a href="{{ route('insights.index') }}"
+                  class="nav-link {{ request()->routeIs('insights.*') ? 'active' : '' }}">
+                  <i class="nav-icon fas fa-brain text-warning"></i>
+                  <p>{{ __('Phân tích Thông minh') }}</p>
+               </a>
+            </li>
+
+            <li class="nav-item">
                <a href="{{ route('reports.index') }}"
                   class="nav-link {{ request()->routeIs('reports.*') ? 'active' : '' }}">
                   <i class="nav-icon fas fa-chart-line"></i>

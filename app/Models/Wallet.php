@@ -10,6 +10,7 @@ class Wallet extends Model
 {
    protected $fillable = [
       'user_id',
+      'family_id',
       'name',
       'type',
       'balance',
@@ -30,6 +31,14 @@ class Wallet extends Model
    public function user(): BelongsTo
    {
       return $this->belongsTo(User::class);
+   }
+
+   /**
+    * Get the family this wallet is shared with.
+    */
+   public function family(): BelongsTo
+   {
+      return $this->belongsTo(Family::class);
    }
 
    /**
@@ -60,4 +69,29 @@ class Wallet extends Model
       }
       $this->save();
    }
+
+   /**
+    * Check if wallet is shared with a family.
+    */
+   public function isShared(): bool
+   {
+      return $this->family_id !== null;
+   }
+
+   /**
+    * Scope for shared wallets.
+    */
+   public function scopeShared($query)
+   {
+      return $query->whereNotNull('family_id');
+   }
+
+   /**
+    * Scope for personal (unshared) wallets.
+    */
+   public function scopePersonal($query)
+   {
+      return $query->whereNull('family_id');
+   }
 }
+
