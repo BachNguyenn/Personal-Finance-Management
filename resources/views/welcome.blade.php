@@ -4,7 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Quản lý tài chính cá nhân thông minh - Theo dõi thu chi, lập ngân sách và đạt mục tiêu tiết kiệm của bạn">
+    <meta name="description"
+        content="Quản lý tài chính cá nhân thông minh - Theo dõi thu chi, lập ngân sách và đạt mục tiêu tiết kiệm của bạn">
 
     <title>{{ config('app.name', 'Personal Finance') }} - Quản lý Tài chính Thông minh</title>
 
@@ -288,8 +289,15 @@
         }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(5deg); }
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(5deg);
+            }
         }
 
         /* Features Section */
@@ -627,7 +635,9 @@
                 justify-content: center;
             }
 
-            .features, .benefits, .cta {
+            .features,
+            .benefits,
+            .cta {
                 padding: 4rem 1.5rem;
             }
 
@@ -652,6 +662,7 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -662,10 +673,21 @@
             animation: fadeInUp 0.6s ease forwards;
         }
 
-        .delay-100 { animation-delay: 0.1s; }
-        .delay-200 { animation-delay: 0.2s; }
-        .delay-300 { animation-delay: 0.3s; }
-        .delay-400 { animation-delay: 0.4s; }
+        .delay-100 {
+            animation-delay: 0.1s;
+        }
+
+        .delay-200 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-300 {
+            animation-delay: 0.3s;
+        }
+
+        .delay-400 {
+            animation-delay: 0.4s;
+        }
     </style>
 </head>
 
@@ -675,7 +697,7 @@
         <div class="navbar-container">
             <a href="/" class="logo">
                 <i class="fas fa-wallet"></i>
-                <span>FinanceApp</span>
+                <span>{{ config('app.name') }}</span>
             </a>
             @if (Route::has('login'))
                 <div class="nav-links">
@@ -703,7 +725,7 @@
         <div class="floating-shape shape-1"></div>
         <div class="floating-shape shape-2"></div>
         <div class="floating-shape shape-3"></div>
-        
+
         <div class="hero-content">
             <div class="hero-badge animate-fade-in-up">
                 <i class="fas fa-sparkles"></i>
@@ -713,7 +735,7 @@
                 Kiểm Soát Tài Chính<br>Xây Dựng Tương Lai
             </h1>
             <p class="animate-fade-in-up delay-200">
-                Theo dõi thu chi, lập ngân sách và đạt mục tiêu tiết kiệm một cách dễ dàng. 
+                Theo dõi thu chi, lập ngân sách và đạt mục tiêu tiết kiệm một cách dễ dàng.
                 Bắt đầu hành trình làm chủ tài chính của bạn ngay hôm nay.
             </p>
             <div class="hero-buttons animate-fade-in-up delay-300">
@@ -758,7 +780,8 @@
                         <i class="fas fa-wallet"></i>
                     </div>
                     <h3>Quản lý Ví tiền</h3>
-                    <p>Tạo và quản lý nhiều ví khác nhau: tiền mặt, ngân hàng, thẻ tín dụng... Theo dõi số dư real-time.</p>
+                    <p>Tạo và quản lý nhiều ví khác nhau: tiền mặt, ngân hàng, thẻ tín dụng... Theo dõi số dư real-time.
+                    </p>
                 </div>
 
                 <div class="feature-card">
@@ -801,36 +824,37 @@
         <div class="container">
             <div class="benefits-content">
                 <div class="benefits-text">
-                    <h2>Tại sao chọn FinanceApp?</h2>
-                    <p>Chúng tôi giúp bạn đưa ra quyết định tài chính thông minh hơn với công cụ đơn giản nhưng mạnh mẽ.</p>
-                    
+                    <h2>Tại sao chọn {{ config('app.name') }}?</h2>
+                    <p>Chúng tôi cung cấp giải pháp quản lý tài chính toàn diện, giúp bạn làm chủ đồng tiền và xây dựng
+                        tương lai thịnh vượng.</p>
+
                     <ul class="benefit-list">
                         <li>
                             <i class="fas fa-check-circle"></i>
                             <div>
-                                <strong>Hoàn toàn miễn phí</strong>
-                                <span>Sử dụng đầy đủ tính năng mà không mất phí</span>
+                                <strong>Hoàn toàn miễn phí trọn đời</strong>
+                                <span>Trải nghiệm không giới hạn mọi tính năng cao cấp mà không tốn một xu</span>
                             </div>
                         </li>
                         <li>
                             <i class="fas fa-check-circle"></i>
                             <div>
-                                <strong>Dễ dàng sử dụng</strong>
-                                <span>Giao diện thân thiện, không cần kiến thức kế toán</span>
+                                <strong>Giao diện trực quan, tinh tế</strong>
+                                <span>Thiết kế tối giản, dễ dàng thao tác ngay cả với người mới bắt đầu</span>
                             </div>
                         </li>
                         <li>
                             <i class="fas fa-check-circle"></i>
                             <div>
-                                <strong>Bảo mật tuyệt đối</strong>
-                                <span>Dữ liệu được mã hóa và bảo vệ an toàn</span>
+                                <strong>Bảo mật chuẩn ngân hàng</strong>
+                                <span>Dữ liệu của bạn được mã hóa cấp cao nhất và bảo vệ 24/7</span>
                             </div>
                         </li>
                         <li>
                             <i class="fas fa-check-circle"></i>
                             <div>
-                                <strong>Hỗ trợ đa ngôn ngữ</strong>
-                                <span>Tiếng Việt, English và Nhật Bản</span>
+                                <strong>Đồng bộ đa nền tảng</strong>
+                                <span>Truy cập dữ liệu mọi lúc, mọi nơi trên mọi thiết bị của bạn</span>
                             </div>
                         </li>
                     </ul>
@@ -884,9 +908,9 @@
         <div class="footer-content">
             <div class="footer-logo">
                 <i class="fas fa-wallet"></i>
-                <span>FinanceApp</span>
+                <span>{{ config('app.name') }}</span>
             </div>
-            <p class="footer-copy">© 2026 FinanceApp. All rights reserved.</p>
+            <p class="footer-copy">© {{ date('Y') }} {{ config('app.name') }}. All rights reserved.</p>
             <div class="footer-links">
                 <a href="#">Chính sách bảo mật</a>
                 <a href="#">Điều khoản sử dụng</a>
@@ -897,7 +921,7 @@
 
     <script>
         // Navbar scroll effect
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', function () {
             const navbar = document.getElementById('navbar');
             if (window.scrollY > 50) {
                 navbar.classList.add('scrolled');
