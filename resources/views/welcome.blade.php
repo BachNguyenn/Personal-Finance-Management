@@ -684,7 +684,6 @@
         .delay-300 {
             animation-delay: 0.3s;
         }
-
         .delay-400 {
             animation-delay: 0.4s;
         }

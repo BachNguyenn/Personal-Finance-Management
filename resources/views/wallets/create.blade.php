@@ -29,6 +29,7 @@
                         <input type="number" name="balance" class="form-control" value="0">
                         <div class="input-group-append">
                            <span class="input-group-text">VND</span>
+                           <input type="hidden" name="currency" value="VND">
                         </div>
                      </div>
                   </div>

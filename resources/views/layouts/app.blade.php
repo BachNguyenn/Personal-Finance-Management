@@ -181,6 +181,18 @@
 
         .dark-mode select.form-control {
             background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3e%3cpath fill='%23e4e4e4' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 0.75rem center;
+            background-size: 8px 10px;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            padding-right: 1.5rem;
+        }
+
+        .dark-mode select.form-control option {
+            background-color: #1a1a2e;
+            color: #e4e4e4;
         }
 
         .dark-mode .custom-control-label::before {
@@ -413,7 +425,7 @@
         if (localStorage.getItem('darkMode') === 'enabled') {
             document.body.classList.add('dark-mode');
             document.documentElement.classList.add('dark');
-    }
+        }
     </script>
     <div class="wrapper">
 

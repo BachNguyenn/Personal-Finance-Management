@@ -329,10 +329,50 @@
             background: #d1fae5;
             color: #065f46;
         }
+        /* Dark Mode Variables */
+        body.dark-mode {
+            --primary: #34d399;
+            --primary-dark: #10b981;
+            --primary-light: #6ee7b7;
+            --secondary: #2dd4bf;
+            --accent: #5eead4;
+            --dark: #f8fafc;       /* Text is light */
+            --dark-lighter: #e2e8f0;
+            --light: #0f172a;      /* Bg is dark */
+            --gray: #94a3b8;
+            --gradient-start: #022c22;
+            --gradient-end: #115e59;
+        }
+
+        body.dark-mode .auth-card {
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        body.dark-mode .form-control {
+            background: rgba(30, 41, 59, 0.8);
+            border-color: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        body.dark-mode .form-control:focus {
+            background: rgba(30, 41, 59, 1);
+            border-color: var(--primary);
+        }
+
+        body.dark-mode .input-icon {
+            color: #94a3b8;
+        }
     </style>
 </head>
 
 <body>
+    <script>
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            document.body.classList.add('dark-mode');
+        }
+    </script>
+
     <div class="shape shape-1"></div>
     <div class="shape shape-2"></div>
     <div class="shape shape-3"></div>
